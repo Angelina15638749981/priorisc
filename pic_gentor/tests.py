@@ -12,7 +12,7 @@ try:
 except:
     pass
 
-from pic_gentor.data_generator import FakeTextDataGenerator
+from pic_gentor.data_gentor import FakeTextDataGenerator
 from pic_gentor import back_gentor
 from pic_gentor.string_gentor import (
     create_strings_from_file,
@@ -575,7 +575,7 @@ class DataGenerator(unittest.TestCase):
             md5('test/out/white_background.jpg') == md5('test/expected_results/white_background.jpg')
         )
 
-        os.remove('tests/out/white_background.jpg')
+        os.remove('test/out/white_background.jpg')
 
     def test_generate_data_with_gaussian_background(self):
         back_gentor.gaussian_noise(64, 128).convert('RGB').save('test/out/gaussian_background.jpg')
@@ -603,8 +603,8 @@ class CommandLineInterface(unittest.TestCase):
     def test_language_english(self):
         args = ['python3', 'run.py', '-l', 'en', '-c', '1', '--output_dir', '../test/out/']
         subprocess.Popen(args, cwd="trains/").wait()
-        self.assertTrue(len(os.listdir('tests/out/')) == 1)
-        empty_directory('tests/out/')
+        self.assertTrue(len(os.listdir('test/out/')) == 1)
+        empty_directory('test/out/')
 
     def test_language_french(self):
         args = ['python3', 'run.py', '-l', 'fr', '-c', '1', '--output_dir', '../test/out/']

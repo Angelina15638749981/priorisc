@@ -21,9 +21,6 @@ def margins(margin):
 
 # 解析程序的命令行参数
 def parse_arguments():
-    """
-        Parse the command line arguments of the program.
-    """
 
     parser = argparse.ArgumentParser(description='Generate synthetic text data for text recognition.')
     parser.add_argument(
